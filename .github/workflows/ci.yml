@@ -57,6 +57,7 @@ jobs:
       - name: Install monadup toolchain
         run: |
           curl -fsSL https://monad-lang.org/install | bash
-          monadup default
           echo "$HOME/.monad/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.monad/bin:$PATH"
+          monadup default
       - run: monad check sample/tour.mo
