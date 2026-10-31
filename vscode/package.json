@@ -6,6 +6,7 @@
   "preview": true,
   "publisher": "monad-lang",
   "license": "Apache-2.0",
+  "icon": "icon.png",
   "repository": {
     "type": "git",
     "url": "https://tangled.org/monad-lang.org/monad-plugins"
