@@ -8,7 +8,6 @@ import {
   LanguageClient,
   LanguageClientOptions,
   ServerOptions,
-  TransportKind,
 } from "vscode-languageclient/node";
 
 export type TraceLevel = "off" | "messages" | "verbose";
@@ -23,7 +22,10 @@ export function createMonadClient(
   const serverOptions: ServerOptions = {
     command: monadPath,
     args: ["lsp"],
-    transport: TransportKind.stdio,
+    // stdio is the default transport. Do not set `transport:
+    // TransportKind.stdio` explicitly: vscode-languageclient then appends
+    // `--stdio` to the args (its server-side flag convention), and
+    // `monad lsp` takes no flags — it exits 2 before the handshake.
   };
 
   const clientOptions: LanguageClientOptions = {
