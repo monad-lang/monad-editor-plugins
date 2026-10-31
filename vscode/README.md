@@ -19,6 +19,7 @@ A Monad toolchain — normally installed with
 
 ```bash
 curl -fsSL https://monad-lang.org/install | bash
+export PATH=$PATH:~/.monad/bin
 monadup default
 ```
 
@@ -59,11 +60,11 @@ parses are documented in the repo's `docs/toolchain.md`.
 ## Development
 
 ```bash
-npm ci
-npm run typecheck
-npm test          # parser golden tests (node --test)
-npm run build     # esbuild bundle to dist/
-npx vsce package  # VSIX
+pnpm install --frozen-lockfile
+pnpm typecheck
+pnpm test         # parser golden tests (node --test)
+pnpm build        # esbuild bundle to dist/
+pnpm package      # VSIX
 ```
 
 Press F5 in VS Code to launch an Extension Development Host with this

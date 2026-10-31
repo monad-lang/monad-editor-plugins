@@ -19,24 +19,24 @@ The repo-level `CHANGELOG.md` records cross-cutting changes.
 
 ## VS Code (VSIX)
 
-Prerequisites: node >= 20, an Azure DevOps personal access token for the
-`monad-lang` publisher (Marketplace).
+Prerequisites: node >= 20, pnpm, an Azure DevOps personal access token for
+the `monad-lang` publisher (Marketplace).
 
 ```bash
 cd vscode
-npm ci
-npm run typecheck
-npm test
-npx vsce package          # produces monad-<version>.vsix
+pnpm install --frozen-lockfile
+pnpm typecheck
+pnpm test
+pnpm package             # produces monad-<version>.vsix
 # Install locally to smoke-test:
 code --install-extension monad-<version>.vsix
 # Publish:
-npx vsce publish          # needs the publisher PAT once: npx vsce login <publisher>
+pnpm exec vsce publish --no-dependencies   # PAT once: pnpm exec vsce login <publisher>
 ```
 
 Checklist before publishing:
 
-- [ ] `npx vsce package` is warning-free (missing repository/icon fields
+- [ ] `pnpm package` is warning-free (missing repository/icon fields
       surface here).
 - [ ] Alpha markers intact: `preview: true` in `package.json`, the
       `EXPERIMENTAL` description prefix, README warning banner.

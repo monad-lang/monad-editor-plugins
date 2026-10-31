@@ -14,6 +14,7 @@
   "engines": {
     "vscode": "^1.85.0"
   },
+  "packageManager": "pnpm@12.9.0",
   "categories": [
     "Programming Languages",
     "Snippets"
@@ -141,9 +142,9 @@
     "typecheck": "tsc --noEmit",
     "build": "node esbuild.mjs",
     "watch": "node esbuild.mjs --watch",
-    "test": "npm run build-tests && node --test \"out-test/**/*.test.js\"",
+    "test": "pnpm run build-tests && node --test \"out-test/**/*.test.js\"",
     "build-tests": "tsc -p tsconfig.test.json",
-    "package": "vsce package"
+    "package": "vsce package --no-dependencies"
   },
   "dependencies": {
     "vscode-languageclient": "^9.0.1"

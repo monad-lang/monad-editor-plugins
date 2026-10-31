@@ -39,17 +39,18 @@ The extensions build on three external surfaces, each documented in
 
 ## Build and check
 
-Prerequisites: node >= 20, a Rust toolchain, and a working Monad nightly
+Prerequisites: node >= 20, pnpm (pinned via `packageManager` in
+`vscode/package.json`), a Rust toolchain, and a working Monad nightly
 (`monadup default`) for the sample check.
 
 ```bash
 # Everything (CI does exactly this):
-(cd vscode && npm ci && npm run typecheck && npm test && npm run build)
+(cd vscode && pnpm install --frozen-lockfile && pnpm typecheck && pnpm test && pnpm build)
 (cd zed && cargo check)
 monad check sample/tour.mo
 ```
 
-`devenv shell` provides node and rustup if you use devenv.
+`devenv shell` provides node, pnpm and rustup if you use devenv.
 
 Rules:
 

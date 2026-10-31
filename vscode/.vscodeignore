@@ -10,3 +10,5 @@ tsconfig.json
 tsconfig.test.json
 **/*.map
 **/*.ts
+pnpm-lock.yaml
+pnpm-workspace.yaml

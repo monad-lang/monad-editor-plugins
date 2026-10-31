@@ -51,7 +51,7 @@ cd monad-plugins
 #   monadup default
 
 # VS Code extension
-cd vscode && npm ci && npm run build    # then: code --folder-readonly .
+cd vscode && pnpm install --frozen-lockfile && pnpm build    # then: code --folder-readonly .
 
 # Zed extension
 cd zed && cargo check                   # then follow zed/README.md to install

@@ -4,8 +4,8 @@
 }:
 
 {
-  # The Zed extension is Rust; the VS Code extension needs node only
-  # (esbuild + typescript come from npm).
+  # The Zed extension is Rust; the VS Code extension needs node + pnpm
+  # (esbuild + typescript come from the pnpm-managed node_modules).
   #
   # Zed compiles extensions against the `wasm32-wasip2` target and calls
   # `rustup target add` when the toolchain lacks it (zed/README.md has the
@@ -18,5 +18,5 @@
     targets = [ "wasm32-wasip2" ];
   };
 
-  packages = [ pkgs.nodejs ];
+  packages = [ pkgs.nodejs pkgs.pnpm ];
 }

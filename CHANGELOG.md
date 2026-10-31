@@ -5,6 +5,14 @@ keep their own changelogs where their platform expects them
 (`vscode/CHANGELOG.md`); version bumps of a single extension do not appear
 here unless they change the contracts in `docs/`.
 
+## Unreleased
+
+- pnpm-first: the VS Code extension is developed, built and packaged with
+  pnpm (`pnpm-lock.yaml` + `pnpm-workspace.yaml` replace
+  `package-lock.json`; CI, devenv and the docs follow). `vsce` runs with
+  `--no-dependencies` — esbuild bundles everything and `node_modules`
+  never ships in the VSIX.
+
 ## 0.2.0 (2026-10-31)
 
 Cross-cutting: tree-sitter-monad contract bumped to v0.2.0 (commit
