@@ -43,7 +43,7 @@ adapter is thin:
 
 | Contract | Version pinned | Notes |
 |----------|-----------------|-------|
-| `tree-sitter-monad` | git commit `665697bd` (v0.1.1) | scope `source.monad`, file types `.mo`/`.monad`, queries in `queries/` |
+| `tree-sitter-monad` | git commit `740bc6e1` (v0.2.0) | scope `source.monad`, file types `.mo`/`.monad`, queries in `queries/`; `::`-qualified module paths, raw strings `r"…"`/`r#"…"#`, `#![mote]` file attributes |
 | `monad lsp` | serverInfo `monad-lsp` 0.1.0 | full-text sync, utf-16/utf-8 position negotiation; see [docs/language-server.md](language-server.md) |
 | `monadup` | 0.1.0 | `install/list/use/default/uninstall/update/self-install/upgrade/doctor/env/new/version`; see [docs/toolchain.md](toolchain.md) |
 | `monad` CLI | nightly | `build/run/eval/repl/check/test/pretty/version/lsp` |

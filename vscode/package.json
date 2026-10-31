@@ -2,7 +2,7 @@
   "name": "monad",
   "displayName": "Monad",
   "description": "EXPERIMENTAL pre-release (alpha): Monad language support — syntax highlighting aligned with tree-sitter-monad, the monad lsp language server, and monadup toolchain management. The Monad language and its toolchain are not stable yet; expect breaking changes.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "preview": true,
   "publisher": "monad-lang",
   "license": "Apache-2.0",

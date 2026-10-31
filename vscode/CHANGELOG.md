@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.0 (2026-10-31)
+
+Synced with tree-sitter-monad v0.2.0 (grammar commit `740bc6e1`):
+
+- TextMate: `::` module-path delimiter (punctuation), aligned with the
+  `use`/`open` paths (`use std::io { ... }`).
+- TextMate: raw strings `r"…"`, `r#"…"#`, `r##"…"##`, `r###"…"###`.
+- TextMate: `#Class` explicit instance hints highlight as types
+  (`show #ShowB x`).
+- TextMate: dropped the plain `=` operator and the backtick call form —
+  neither exists in the v0.2.0 grammar.
+
 ## 0.1.0 (2026-10-31)
 
 Experimental pre-release (alpha): the extension ships with the

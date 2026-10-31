@@ -5,6 +5,16 @@ keep their own changelogs where their platform expects them
 (`vscode/CHANGELOG.md`); version bumps of a single extension do not appear
 here unless they change the contracts in `docs/`.
 
+## 0.2.0 (2026-10-31)
+
+Cross-cutting: tree-sitter-monad contract bumped to v0.2.0 (commit
+`740bc6e1`) — grammar pin, vendored Zed queries, TextMate sync (see
+`docs/plan.md`'s contract table). The 0.1.0 vendored Zed highlights
+already carried v0.2.0-only node names against the v0.1.1 pin; both
+extensions are now consistent at v0.2.0. Both extensions version-bumped
+to 0.2.0 (`zed/CHANGELOG.md` is new — the publishing runbook referenced
+it without the file existing).
+
 ## 0.1.0 (2026-10-31)
 
 - Everything in this repo is an **experimental pre-release (alpha)**:

@@ -5,6 +5,8 @@
   "patterns": [
     { "include": "#comments" },
     { "include": "#attribute" },
+    { "include": "#dict-hint" },
+    { "include": "#raw-string" },
     { "include": "#string" },
     { "include": "#char" },
     { "include": "#numbers" },
@@ -52,6 +54,15 @@
         { "include": "#string" },
         { "include": "#numbers" }
       ]
+    },
+    "dict-hint": {
+      "name": "entity.name.type.monad",
+      "match": "#[A-Z][A-Za-z0-9_]*"
+    },
+    "raw-string": {
+      "name": "string.quoted.double.raw.monad",
+      "begin": "(?<![A-Za-z0-9_])r(#{0,3})\"",
+      "end": "\"\\1"
     },
     "string": {
       "name": "string.quoted.double.monad",
@@ -117,7 +128,7 @@
       ]
     },
     "use-open": {
-      "match": "\\b(use|open)\\s+([a-zA-Z_][A-Za-z0-9_.]*)",
+      "match": "\\b(use|open)\\s+([a-zA-Z_][A-Za-z0-9_.:]*)",
       "captures": {
         "1": { "name": "keyword.other.monad" },
         "2": { "name": "entity.name.namespace.monad" }
@@ -141,7 +152,7 @@
     },
     "operators": {
       "name": "keyword.operator.monad",
-      "match": ":=|>>=|->|=>|<-|<\\*>|<\\|>|>\\||<\\||\\+\\+|&&|\\|\\||==|!=|>=|<=|>>|<<|@|=|<|>|\\+|-|\\*|/"
+      "match": ":=|>>=|->|=>|<-|<\\*>|<\\|>|>\\||<\\||\\+\\+|&&|\\|\\||==|!=|>=|<=|>>|<<|@|<|>|\\+|-|\\*|/"
     },
     "parameters": {
       "match": "([{(,]\\s*)([A-Za-z_][A-Za-z0-9_]*)\\s*(?=:)",
@@ -161,7 +172,7 @@
         },
         {
           "name": "punctuation.definition.delimiter.monad",
-          "match": "\\,|;|:|\\.\\.|\\.|`"
+          "match": "\\,|;|::|:|\\.\\.|\\."
         }
       ]
     },
