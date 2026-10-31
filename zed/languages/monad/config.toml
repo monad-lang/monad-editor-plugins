@@ -1,0 +1,13 @@
+name = "Monad"
+grammar = "monad"
+path_suffixes = ["mo", "monad"]
+line_comments = ["// "]
+block_comment = ["/* ", " */"]
+word_pattern = "[a-zA-Z_][a-zA-Z0-9_]*"
+autoclose_before = "})]"
+brackets = [
+  { start = "(", end = ")", close = true, newline = true },
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "[", end = "]", close = true, newline = true },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["string", "comment"] },
+]

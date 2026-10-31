@@ -1,0 +1,26 @@
+# Build output
+node_modules/
+dist/
+out/
+out-test/
+*.vsix
+
+# Rust / Zed extension
+zed/target/
+
+# devenv
+.devenv*
+devenv.local.nix
+devenv.local.yaml
+
+# direnv
+.direnv
+
+# Editors
+.vibe/
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# OS
+.DS_Store

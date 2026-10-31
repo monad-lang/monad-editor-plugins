@@ -1,0 +1,16 @@
+schema_version = "1.0.0"
+id = "monad"
+name = "Monad"
+description = "Monad language support: tree-sitter-monad syntax highlighting and the monad lsp language server."
+version = "0.1.0"
+authors = ["Anders Christiansen Sørby <anders@sorby.xyz>"]
+repository = "https://tangled.org/monad-lang.org/monad-plugins"
+
+[grammars.monad]
+repository = "https://tangled.org/monad-lang.org/tree-sitter-monad"
+commit = "665697bdc3593401825b524a7fc31fea4ba2b733"
+
+[language_servers.monad]
+language = "Monad"
+name = "monad-lsp"
+languages = ["Monad"]

@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  vscode:
+    name: VS Code extension
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: vscode
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - name: Package (VSIX)
+        run: npx vsce package --no-dependencies
+      - uses: actions/upload-artifact@v4
+        with:
+          name: monad-vsix
+          path: vscode/*.vsix
+          if-no-files-found: error
+
+  zed:
+    name: Zed extension
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: zed
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: zed
+      - run: cargo check
+      - run: cargo clippy -- -D warnings
+
+  sample:
+    name: sample/tour.mo type-checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install monadup toolchain
+        run: |
+          curl -fsSL https://monad-lang.org/install | bash
+          monadup default
+          echo "$HOME/.monad/bin" >> "$GITHUB_PATH"
+      - run: monad check sample/tour.mo

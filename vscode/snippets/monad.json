@@ -1,0 +1,113 @@
+{
+  "def": {
+    "prefix": "def",
+    "body": [
+      "def ${1:name} (${2:arg} : ${3:Type}) : ${4:Type} := $0"
+    ],
+    "description": "A def with an explicit parameter group"
+  },
+  "def do": {
+    "prefix": "def do",
+    "body": [
+      "def ${1:name} (${2:arg} : ${3:Type}) : IO Unit := do {",
+      "  $0",
+      "}"
+    ],
+    "description": "A def whose body is a do block"
+  },
+  "main": {
+    "prefix": "main",
+    "body": [
+      "use std::io {}",
+      "open IO {println}",
+      "",
+      "def main (args : List String) : IO Unit := do {",
+      "  println \"${1:Hello, World!}\"",
+      "}"
+    ],
+    "description": "The hello-world program from the docs"
+  },
+  "type": {
+    "prefix": "type",
+    "body": [
+      "type ${1:Name} ${2:A} {",
+      "  ${3:ctor} (${4:a} : $2),",
+      "  ${5:none}",
+      "}"
+    ],
+    "description": "An inductive type declaration"
+  },
+  "struct": {
+    "prefix": "struct",
+    "body": [
+      "struct ${1:Name} {",
+      "  ${2:field} : ${3:Type},",
+      "  ${4:field} : ${5:Type} := ${6:default}",
+      "}"
+    ],
+    "description": "A struct with a defaulted field"
+  },
+  "class": {
+    "prefix": "class",
+    "body": [
+      "class ${1:Name} ${2:A} {",
+      "  def ${3:method} (self : $2) : ${4:Type}",
+      "}"
+    ],
+    "description": "A type class declaration"
+  },
+  "instance": {
+    "prefix": "instance",
+    "body": [
+      "instance ${1:Name} ${2:Carrier} {",
+      "  def ${3:method} (self : $2) : ${4:Type} := $0",
+      "}"
+    ],
+    "description": "An instance of a class"
+  },
+  "match": {
+    "prefix": "match",
+    "body": [
+      "match ${1:scrutinee} {",
+      "  ${2:ctor} ${3:binder} => $4,",
+      "  _ => $0",
+      "}"
+    ],
+    "description": "A match expression with a catch-all arm"
+  },
+  "do": {
+    "prefix": "do",
+    "body": ["do {", "  $0", "}"],
+    "description": "A do block"
+  },
+  "let do": {
+    "prefix": "let",
+    "body": ["let ${1:name} : ${2:Type} := ${3:value};"],
+    "description": "An annotated let in a do block"
+  },
+  "bind": {
+    "prefix": "bind",
+    "body": ["let ${1:name} : ${2:Type} <- ${3:action};"],
+    "description": "A monadic bind in a do block"
+  },
+  "test": {
+    "prefix": "test",
+    "body": ["#[test]", "def test_${1:name} : Bool := $0"],
+    "description": "A test definition"
+  },
+  "use": {
+    "prefix": "use",
+    "body": ["use ${1:module} {}"],
+    "description": "A use declaration"
+  },
+  "open": {
+    "prefix": "open",
+    "body": ["open ${1:Module} {${2:names}}"],
+    "description": "An open declaration"
+  },
+  "infix": {
+    "prefix": "infix",
+    "body": ["infix (${1:op}) := ${2:definition}"],
+    "description": "An infix operator declaration"
+  }
+}

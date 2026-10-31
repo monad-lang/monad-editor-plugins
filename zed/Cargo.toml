@@ -1,0 +1,13 @@
+[package]
+name = "monad"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Monad language support for Zed"
+repository = "https://tangled.org/monad-lang.org/monad-plugins"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+zed_extension_api = "0.7.0"

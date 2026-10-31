@@ -1,0 +1,156 @@
+{
+  "name": "monad",
+  "displayName": "Monad",
+  "description": "Monad language support: syntax highlighting aligned with tree-sitter-monad, the monad lsp language server, and monadup toolchain management.",
+  "version": "0.1.0",
+  "publisher": "monad-lang",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://tangled.org/monad-lang.org/monad-plugins"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "monad",
+    "monad-lang",
+    "tree-sitter",
+    "lsp"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "monad",
+        "aliases": [
+          "Monad",
+          "monad"
+        ],
+        "extensions": [
+          ".mo",
+          ".monad"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "monad",
+        "scopeName": "source.monad",
+        "path": "./syntaxes/monad.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "monad",
+        "path": "./snippets/monad.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "monad.toolchain.select",
+        "title": "Monad: Select Toolchain",
+        "category": "Monad",
+        "description": "Pick an installed nightly (monadup use) and restart the language server."
+      },
+      {
+        "command": "monad.toolchain.installLatest",
+        "title": "Monad: Install Latest Toolchain",
+        "category": "Monad",
+        "description": "Install the newest nightly and make it active (monadup default)."
+      },
+      {
+        "command": "monad.toolchain.update",
+        "title": "Monad: Update Toolchain",
+        "category": "Monad",
+        "description": "Fetch the newest nightly (monad update)."
+      },
+      {
+        "command": "monad.toolchain.doctor",
+        "title": "Monad: Toolchain Health",
+        "category": "Monad",
+        "description": "Run monadup doctor and show the health report."
+      },
+      {
+        "command": "monad.toolchain.env",
+        "title": "Monad: Toolchain Environment",
+        "category": "Monad",
+        "description": "Run monadup env and show the resolved environment."
+      },
+      {
+        "command": "monad.restartServer",
+        "title": "Monad: Restart Language Server",
+        "category": "Monad",
+        "description": "Restart the monad lsp server."
+      },
+      {
+        "command": "monad.runFile",
+        "title": "Monad: Run Active File",
+        "category": "Monad",
+        "description": "Compile and run the active .mo file (monad run)."
+      },
+      {
+        "command": "monad.checkFile",
+        "title": "Monad: Check Active File",
+        "category": "Monad",
+        "description": "Parse and type-check the active .mo file (monad check)."
+      }
+    ],
+    "configuration": {
+      "title": "Monad",
+      "properties": {
+        "monad.monadPath": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "markdownDescription": "Absolute path to the `monad` compiler binary. When set, this path is used for the language server and file commands; monadup discovery is skipped."
+        },
+        "monad.monadupPath": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "markdownDescription": "Absolute path to the `monadup` toolchain manager. When unset, `$MONAD_HOME/bin/monadup` (default `~/.monad/bin/monadup`) then `monadup` on PATH is used."
+        },
+        "monad.server.trace": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Trace the language server's protocol traffic in the Monad output channel."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "node esbuild.mjs --production",
+    "typecheck": "tsc --noEmit",
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "test": "npm run build-tests && node --test \"out-test/**/*.test.js\"",
+    "build-tests": "tsc -p tsconfig.test.json",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.0"
+  }
+}

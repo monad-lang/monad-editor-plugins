@@ -1,0 +1,177 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Monad",
+  "scopeName": "source.monad",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#attribute" },
+    { "include": "#string" },
+    { "include": "#char" },
+    { "include": "#numbers" },
+    { "include": "#booleans" },
+    { "include": "#hole" },
+    { "include": "#builtin-types" },
+    { "include": "#decl-names" },
+    { "include": "#use-open" },
+    { "include": "#lambda-glyphs" },
+    { "include": "#keywords" },
+    { "include": "#operators" },
+    { "include": "#parameters" },
+    { "include": "#macro-call" },
+    { "include": "#punctuation" },
+    { "include": "#type-cap" },
+    { "include": "#identifier" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.documentation.monad",
+          "match": "///.*$"
+        },
+        {
+          "name": "comment.line.double-slash.monad",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.monad",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "attribute": {
+      "name": "meta.annotation.monad",
+      "begin": "#!?\\[",
+      "end": "\\]",
+      "patterns": [
+        {
+          "name": "entity.other.attribute-name.monad",
+          "match": "\\b[a-z_][A-Za-z0-9_]*\\b"
+        },
+        { "include": "#string" },
+        { "include": "#numbers" }
+      ]
+    },
+    "string": {
+      "name": "string.quoted.double.monad",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.monad",
+          "match": "\\\\(?:u\\{[0-9a-fA-F]{1,6}\\}|[\\\\/\"'nrtbf]|[ \\t\\r\\n]+)"
+        }
+      ]
+    },
+    "char": {
+      "name": "constant.character.monad",
+      "match": "'(?:\\\\(?:u\\{[0-9a-fA-F]{1,6}\\}|[\\\\/\"'nrtbf])|[^'\\\\])'"
+    },
+    "numbers": {
+      "name": "constant.numeric.monad",
+      "match": "(?<![\\w.])(?:0[xX][0-9a-fA-F]+|[0-9]+\\.[0-9]*|[0-9]+)(?:i8|i16|i32|i64|u8|u16|u32|u64|f32|f64)?"
+    },
+    "booleans": {
+      "name": "constant.language.boolean.monad",
+      "match": "\\b(?:true|false)\\b"
+    },
+    "hole": {
+      "name": "constant.language.hole.monad",
+      "match": "(?<![\\w])_(?![\\w])"
+    },
+    "builtin-types": {
+      "name": "support.type.monad",
+      "match": "\\b(?:Type|Pred|Sort)\\b"
+    },
+    "decl-names": {
+      "patterns": [
+        {
+          "match": "^\\s*(?:pub\\s+|priv\\s+|)(defmacro|def)\\s+([a-zA-Z_][A-Za-z0-9_]*(?:\\.[A-Za-z0-9_]+)*)",
+          "captures": {
+            "1": { "name": "keyword.other.declaration.monad" },
+            "2": { "name": "entity.name.function.monad" }
+          }
+        },
+        {
+          "match": "^\\s*(?:pub\\s+|priv\\s+|)(type|struct|class)\\s+([A-Z][A-Za-z0-9_]*)",
+          "captures": {
+            "1": { "name": "keyword.other.declaration.monad" },
+            "2": { "name": "entity.name.type.monad" }
+          }
+        },
+        {
+          "match": "^\\s*instance\\s+([A-Z][A-Za-z0-9_.]*)",
+          "captures": {
+            "0": { "name": "keyword.other.declaration.monad" },
+            "1": { "name": "entity.name.type.monad" }
+          }
+        },
+        {
+          "match": "^\\s*infix\\s*(\\([^)]*\\))\\s*:=\\s*([a-zA-Z_][A-Za-z0-9_.]*)",
+          "captures": {
+            "1": { "name": "keyword.operator.monad" },
+            "2": { "name": "entity.name.function.monad" }
+          }
+        }
+      ]
+    },
+    "use-open": {
+      "match": "\\b(use|open)\\s+([a-zA-Z_][A-Za-z0-9_.]*)",
+      "captures": {
+        "1": { "name": "keyword.other.monad" },
+        "2": { "name": "entity.name.namespace.monad" }
+      }
+    },
+    "lambda-glyphs": {
+      "name": "keyword.other.fn.monad",
+      "match": "\\\\|ꟛ"
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.monad",
+          "match": "\\b(?:if|then|else|match|return|do|with|in)\\b"
+        },
+        {
+          "name": "keyword.other.monad",
+          "match": "\\b(?:def|defmacro|type|struct|class|instance|infix|let|use|open|quote|decls|pub|priv|fn)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "name": "keyword.operator.monad",
+      "match": ":=|>>=|->|=>|<-|<\\*>|<\\|>|>\\||<\\||\\+\\+|&&|\\|\\||==|!=|>=|<=|>>|<<|@|=|<|>|\\+|-|\\*|/"
+    },
+    "parameters": {
+      "match": "([{(,]\\s*)([A-Za-z_][A-Za-z0-9_]*)\\s*(?=:)",
+      "captures": {
+        "2": { "name": "variable.parameter.monad" }
+      }
+    },
+    "macro-call": {
+      "name": "entity.name.function.macro.monad",
+      "match": "\\b[a-z_][A-Za-z0-9_]*!(?!=)"
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.definition.bracket.monad",
+          "match": "[\\[\\](){}]"
+        },
+        {
+          "name": "punctuation.definition.delimiter.monad",
+          "match": "\\,|;|:|\\.\\.|\\.|`"
+        }
+      ]
+    },
+    "type-cap": {
+      "name": "entity.name.type.monad",
+      "match": "\\b[A-Z][A-Za-z0-9_]*\\b"
+    },
+    "identifier": {
+      "name": "variable.other.monad",
+      "match": "\\b[a-z_][A-Za-z0-9_]*\\b"
+    }
+  }
+}
