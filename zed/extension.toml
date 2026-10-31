@@ -1,7 +1,7 @@
 schema_version = "1.0.0"
 id = "monad"
 name = "Monad"
-description = "Monad language support: tree-sitter-monad syntax highlighting and the monad lsp language server."
+description = "EXPERIMENTAL pre-release (alpha): Monad language support — tree-sitter-monad syntax highlighting and the monad lsp language server. The Monad language and its toolchain are not stable yet; expect breaking changes."
 version = "0.1.0"
 authors = ["Anders Christiansen Sørby <anders@sorby.xyz>"]
 repository = "https://tangled.org/monad-lang.org/monad-plugins"

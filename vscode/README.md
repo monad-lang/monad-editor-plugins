@@ -1,5 +1,13 @@
 # Monad for VS Code
 
+> [!WARNING]
+> **Experimental pre-release (alpha).** This extension and the Monad
+> language it supports are both alpha software. Syntax, APIs, and
+> toolchain behavior may change without notice between nightly
+> toolchains; the extension is published with the VS Code preview flag
+> and follows monad nightlies on a best-effort basis. Do not rely on it
+> for production work yet.
+
 VS Code support for the [Monad language](https://monad-lang.org):
 syntax highlighting, snippets, the `monad lsp` language server, and
 monadup toolchain management.

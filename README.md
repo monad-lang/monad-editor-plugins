@@ -1,20 +1,25 @@
 # monad-plugins
 
-Editor integrations for the [Monad language](https://monad-lang.org):
-VS Code and Zed extensions backed by the toolchain users already have —
-`tree-sitter-monad` for syntax, `monad lsp` for language intelligence, and
-`monadup` for toolchain management.
+**Experimental pre-release (alpha).** Editor integrations for the
+[Monad language](https://monad-lang.org): VS Code and Zed extensions
+backed by the toolchain users already have — `tree-sitter-monad` for
+syntax, `monad lsp` for language intelligence, and `monadup` for
+toolchain management.
 
 > [!WARNING]
-> Monad is in alpha; its toolchains are nightlies. These extensions follow
-> the same rule: every capability is negotiated at runtime, never assumed.
+> The extensions in this repo are experimental pre-releases, because
+> the Monad language itself is not ready for general use yet. Monad is
+> alpha and its toolchains are nightlies: syntax, APIs, and server
+> behavior may change without notice, and every capability is negotiated
+> at runtime, never assumed. Do not use these extensions for production
+> work yet.
 
 ## Editors
 
 | Editor | Status | Where |
 |--------|--------|-------|
-| VS Code | implemented — see [vscode/README.md](vscode/README.md) | `vscode/` |
-| Zed | scaffolded — see [zed/README.md](zed/README.md) | `zed/` |
+| VS Code | experimental alpha, implemented — see [vscode/README.md](vscode/README.md) | `vscode/` |
+| Zed | experimental alpha, scaffolded — see [zed/README.md](zed/README.md) | `zed/` |
 
 Neovim and Helix are served by [tree-sitter-monad](https://tangled.org/monad-lang.org/tree-sitter-monad)
 directly (its README has the config snippets); this repo's `docs/` records

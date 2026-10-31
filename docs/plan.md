@@ -5,7 +5,10 @@ This repo (`monad-plugins`) holds the editor integrations for the
 make editing `.mo` files feel native, backed by the same toolchain users
 already install.
 
-Status: **Phase 1 (VS Code) implemented; Phase 2 (Zed) scaffolded.**
+Status: **experimental pre-release (alpha)** — Phase 1 (VS Code)
+implemented; Phase 2 (Zed) scaffolded. Everything in this repo ships
+marked experimental (VS Code preview flag, README banners, manifest
+descriptions) until the Monad language is ready for general use.
 See [Phases](#phases) for detail.
 
 ## Mission
@@ -150,6 +153,12 @@ VS Code- or Zed-specific by accident.
 
 ## Risks and notes
 
+- **Alpha positioning (standing rule).** The Monad language is not ready
+  for general use; every published artifact from this repo is declared an
+  experimental pre-release (VS Code `preview: true`, alpha README banners,
+  EXPLICIT "experimental" in manifest descriptions). Keep those markers
+  until the language stabilizes; removing them is a deliberate decision,
+  not a version bump side effect.
 - **Nightly churn.** The toolchain is nightly-only and alpha; the extension
   must treat every `monad lsp` capability as optional and version-negotiated,
   never assumed.

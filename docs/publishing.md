@@ -1,5 +1,13 @@
 # Publishing runbook
 
+Everything published from this repo is an **experimental pre-release
+(alpha)** until the Monad language is ready for general use. Keep the
+markers in place on every release: VS Code `preview: true` in
+`package.json` (Marketplace "Preview" badge), the `EXPERIMENTAL` prefix in
+both extensions' manifest descriptions, and the alpha warning banners in
+the READMEs. Dropping them is a deliberate repo-wide decision, not a
+version bump.
+
 Versioning: the two extensions version independently (their platforms have
 independent release cadences), but both use `MAJOR.MINOR.PATCH` starting at
 `0.1.0`. Bump:
@@ -30,6 +38,8 @@ Checklist before publishing:
 
 - [ ] `npx vsce package` is warning-free (missing repository/icon fields
       surface here).
+- [ ] Alpha markers intact: `preview: true` in `package.json`, the
+      `EXPERIMENTAL` description prefix, README warning banner.
 - [ ] Manual smoke test with `sample/tour.mo`: highlighting, hover,
       definition, document symbols, diagnostics on an intentional error,
       status bar toolchain tag, toolchain select.
@@ -59,6 +69,8 @@ Checklist before the registry PR:
 - [ ] `extension.toml` grammar commit matches the published
       `tree-sitter-monad` HEAD you verified against (bump deliberately, not
       opportunistically — Zed users get whatever is pinned).
+- [ ] Alpha markers intact: `EXPERIMENTAL` description prefix in
+      `extension.toml`, README warning banner.
 - [ ] Queries in `zed/queries/` still match the pinned grammar's node names
       (rename an upstream rule and every scm referencing it breaks at load).
 - [ ] Local install smoke test: highlighting, brackets, folds, hover,

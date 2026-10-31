@@ -2,6 +2,10 @@
 
 ## 0.1.0 (2026-10-31)
 
+Experimental pre-release (alpha): the extension ships with the
+Marketplace preview flag and tracks Monad's nightly toolchains; syntax
+and behavior may change without notice.
+
 - `monad` language: `.mo`/`.monad` extensions, language configuration
   (brackets, comments, folding), TextMate grammar mirroring
   tree-sitter-monad's capture set.

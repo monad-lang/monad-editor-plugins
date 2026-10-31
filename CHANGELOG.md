@@ -7,6 +7,9 @@ here unless they change the contracts in `docs/`.
 
 ## 0.1.0 (2026-10-31)
 
+- Everything in this repo is an **experimental pre-release (alpha)**:
+  both extensions ship with preview/experimental markers, because the
+  Monad language and its nightly toolchains are not stable yet.
 - Repo scaffold: AGENTS.md, contract docs (`docs/`), CI, devenv.
 - VS Code extension: `monad` language (TextMate grammar mirroring
   tree-sitter-monad's captures), snippets, `monad lsp` client with

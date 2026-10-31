@@ -1,5 +1,12 @@
 # Monad for Zed
 
+> [!WARNING]
+> **Experimental pre-release (alpha).** This extension and the Monad
+> language it supports are both alpha software. Syntax, APIs, and
+> toolchain behavior may change without notice between nightly
+> toolchains; the extension follows monad nightlies on a best-effort
+> basis. Do not rely on it for production work yet.
+
 Zed support for the [Monad language](https://monad-lang.org):
 tree-sitter-monad syntax highlighting and the `monad lsp` language server.
 
