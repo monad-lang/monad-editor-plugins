@@ -59,9 +59,8 @@ Zed extensions live in `zed/` and ship through the community registry
 ```bash
 cd zed
 cargo check
-# If the zed CLI is installed:
-zed extension lint .
-zed extension install .   # local smoke test in the running editor
+# Local smoke test: install the dev extension in the running editor
+# (Extensions page → Install Dev Extension — see zed/README.md).
 ```
 
 Checklist before the registry PR:

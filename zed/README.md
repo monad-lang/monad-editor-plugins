@@ -41,21 +41,30 @@ directory is on the PATH Zed sees:
 
 ## Install (local development)
 
-With the Zed CLI:
+Installing compiles the extension to WASM, so Zed needs a Rust toolchain
+with the `wasm32-wasip2` target on its PATH:
 
-```bash
-zed extension install --dev zed     # from this directory
-```
+- **rustup toolchains**: nothing to do — if the target is missing, Zed runs
+  `rustup target add wasm32-wasip2` itself. Install it up front with
+  `rustup target add wasm32-wasip2`.
+- **Nix toolchains** (NixOS, this repo): there is no `rustup` to install
+  the target, so Zed fails with
+  `failed to run 'rustup target add': No such file or directory`. Use
+  `devenv shell` from the repo root — `devenv.nix` provides a stable
+  toolchain with `wasm32-wasip2` built in — and launch Zed from that
+  shell (`zeditor .`). A GUI-launched Zed re-reads PATH from the login
+  shell instead and will not see the devenv toolchain.
 
-Then open a `.mo` file (e.g. `../sample/tour.mo` from the repo root) and
-check the hover/definition/diagnostic behavior. Uninstall with
-`zed extension uninstall monad`.
+Then install from the Zed UI: open this repo in Zed, open the Extensions
+page (`ctrl-shift-x`), and click **Install Dev Extension**.
+
+Open a `.mo` file (e.g. `../sample/tour.mo` from the repo root) and check
+the hover/definition/diagnostic behavior. Uninstall from the same page.
 
 ## Checks
 
 ```bash
 cargo check     # what CI runs
-zed extension lint .   # if the zed CLI is available
 ```
 
 Zed builds the grammar from the git commit pinned in `extension.toml` on
