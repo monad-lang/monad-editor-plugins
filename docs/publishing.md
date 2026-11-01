@@ -70,8 +70,10 @@ Checklist before the registry PR:
       opportunistically — Zed users get whatever is pinned).
 - [ ] Alpha markers intact: `EXPERIMENTAL` description prefix in
       `extension.toml`, README warning banner.
-- [ ] Queries in `zed/queries/` still match the pinned grammar's node names
-      (rename an upstream rule and every scm referencing it breaks at load).
+- [ ] Queries in `zed/languages/monad/` still match the pinned grammar's
+      node names (rename an upstream rule and every scm referencing it
+      breaks at load). They must stay in the language directory next to
+      `config.toml` — Zed ignores query files anywhere else.
 - [ ] Local install smoke test: highlighting, brackets, folds, hover,
       definition, diagnostics with `sample/tour.mo`.
 - [ ] `monad` is on PATH for the Zed process (macOS GUI apps do not inherit
@@ -85,6 +87,6 @@ When `tree-sitter-monad` publishes:
 1. Update the pinned commit in `zed/extension.toml`.
 2. Re-apply the sync rule from [language-server.md](language-server.md) to
    `vscode/syntaxes/monad.tmLanguage.json`.
-3. Re-vendor `queries/highlights.scm` + `queries/folds.scm` into `zed/queries/`
-   (keep the attribution headers).
+3. Re-vendor `queries/highlights.scm` + `queries/folds.scm` from the
+   grammar into `zed/languages/monad/` (keep the attribution headers).
 4. Run both extensions' checks, bump versions, changelogs, publish.

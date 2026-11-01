@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.1 (2026-11-01)
+
+- Fixed: no syntax highlighting in Zed. The vendored queries lived in a
+  top-level `queries/` directory, which Zed never reads — it only loads
+  queries from the language directory next to `config.toml`. Moved
+  `highlights.scm`, `folds.scm`, `indents.scm` to `languages/monad/`.
+  Note: Zed 1.3.x defines no `folds` query kind, so `folds.scm` is
+  retained only to mirror the upstream grammar.
+
 ## 0.2.0 (2026-10-31)
 
 - Grammar pin bumped to tree-sitter-monad v0.2.0 (commit `740bc6e1`):

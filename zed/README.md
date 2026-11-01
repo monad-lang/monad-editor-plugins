@@ -14,8 +14,10 @@ tree-sitter-monad syntax highlighting and the `monad lsp` language server.
 
 - **Syntax highlighting, folds, indentation** via the pinned
   [tree-sitter-monad](https://tangled.org/monad-lang.org/tree-sitter-monad)
-  grammar; queries are vendored in `queries/` (highlights/folds upstream,
-  indents in-repo).
+  grammar; queries are vendored in `languages/monad/`, next to
+  `config.toml` (highlights/folds upstream, indents in-repo). Zed only
+  loads queries from the language directory — a top-level `queries/`
+  dir is silently ignored, which is why 0.2.0 showed no highlighting.
 - **Language intelligence** — hover, go-to-definition, document/workspace
   symbols, diagnostics — from `monad lsp`, launched with `monad lsp` on the
   PATH of the Zed process.
