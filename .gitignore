@@ -4,6 +4,7 @@ dist/
 out/
 out-test/
 *.vsix
+target
 
 # Rust / Zed extension
 zed/target/
